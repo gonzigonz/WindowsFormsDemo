@@ -23,9 +23,19 @@ namespace App.Data
             return _categories;
         }
 
-        public IList<Product> GetXCollectionProducts(int categoryId)
+        public IList<Product> GetProducts(int categoryId)
         {
             return _products.Where(p => p.CategoryId == categoryId).ToList();
+        }
+
+        public void DeleteProduct(Product product)
+        {
+            _products.Remove(product);
+        }
+
+        public void AddProduct(Product product)
+        {
+            _products.Add(product);
         }
 
         private void PopulateData()
@@ -36,10 +46,10 @@ namespace App.Data
 
             _products.Add(new Product { Id = 1, CategoryId = 1, Name = "Coke", Price = 3.50m });
             _products.Add(new Product { Id = 2, CategoryId = 1, Name = "Pepsi", Price = 3.40m });
-            _products.Add(new Product { Id = 3, CategoryId = 2, Name = "Ketchup", Price = 3.50m });
-            _products.Add(new Product { Id = 4, CategoryId = 2, Name = "Mustard", Price = 3.50m });
-            _products.Add(new Product { Id = 5, CategoryId = 3, Name = "Full Milk", Price = 3.50m });
-            _products.Add(new Product { Id = 6, CategoryId = 3, Name = "Skim Milk", Price = 3.50m });
+            _products.Add(new Product { Id = 3, CategoryId = 2, Name = "Ketchup", Price = 2.70m });
+            _products.Add(new Product { Id = 4, CategoryId = 2, Name = "Mustard", Price = 2.50m });
+            _products.Add(new Product { Id = 5, CategoryId = 3, Name = "Full Milk", Price = 1.50m });
+            _products.Add(new Product { Id = 6, CategoryId = 3, Name = "Skim Milk", Price = 1.60m });
         }
     }
 }
