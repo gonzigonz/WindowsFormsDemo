@@ -53,7 +53,7 @@
             this.PriceLabel.Location = new System.Drawing.Point(53, 137);
             this.PriceLabel.Name = "PriceLabel";
             this.PriceLabel.Size = new System.Drawing.Size(62, 26);
-            this.PriceLabel.TabIndex = 1;
+            this.PriceLabel.TabIndex = 2;
             this.PriceLabel.Text = "Price";
             // 
             // CategoryLabel
@@ -62,7 +62,7 @@
             this.CategoryLabel.Location = new System.Drawing.Point(53, 206);
             this.CategoryLabel.Name = "CategoryLabel";
             this.CategoryLabel.Size = new System.Drawing.Size(100, 26);
-            this.CategoryLabel.TabIndex = 2;
+            this.CategoryLabel.TabIndex = 4;
             this.CategoryLabel.Text = "Category";
             // 
             // NameTextBox
@@ -70,14 +70,14 @@
             this.NameTextBox.Location = new System.Drawing.Point(262, 73);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(100, 31);
-            this.NameTextBox.TabIndex = 3;
+            this.NameTextBox.TabIndex = 1;
             // 
             // PriceTextBox
             // 
             this.PriceTextBox.Location = new System.Drawing.Point(262, 137);
             this.PriceTextBox.Name = "PriceTextBox";
             this.PriceTextBox.Size = new System.Drawing.Size(100, 31);
-            this.PriceTextBox.TabIndex = 4;
+            this.PriceTextBox.TabIndex = 3;
             // 
             // CategoryTextBox
             // 
@@ -86,6 +86,7 @@
             this.CategoryTextBox.ReadOnly = true;
             this.CategoryTextBox.Size = new System.Drawing.Size(100, 31);
             this.CategoryTextBox.TabIndex = 5;
+            this.CategoryTextBox.TabStop = false;
             // 
             // OkButton
             // 
@@ -112,7 +113,6 @@
             this.AcceptButton = this.OkButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(633, 477);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);

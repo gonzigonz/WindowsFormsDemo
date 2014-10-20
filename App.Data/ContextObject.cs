@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using App.Data.Entities;
 
 namespace App.Data
 {
-    public class ContextObject
+    public class ContextObject : IContext
     {
         private readonly List<Category> _categories;
         private readonly List<Product> _products;
@@ -15,7 +14,7 @@ namespace App.Data
             _categories = new List<Category>();
             _products = new List<Product>();
 
-            PopulateData();
+            SeedData();
         }
 
         public IList<Category> GetAllCategories()
@@ -28,17 +27,22 @@ namespace App.Data
             return _products.Where(p => p.CategoryId == categoryId).ToList();
         }
 
-        public void DeleteProduct(Product product)
+        public void Save()
         {
-            _products.Remove(product);
+            throw new System.NotImplementedException();
         }
 
-        public void AddProduct(Product product)
-        {
-            _products.Add(product);
-        }
+        //public void DeleteProduct(Product product)
+        //{
+        //    _products.Remove(product);
+        //}
 
-        private void PopulateData()
+        //public void AddProduct(Product product)
+        //{
+        //    _products.Add(product);
+        //}
+
+        public void SeedData()
         {
             _categories.Add(new Category { Id = 1, Name = "Beverages" });
             _categories.Add(new Category { Id = 2, Name = "Condiments" });

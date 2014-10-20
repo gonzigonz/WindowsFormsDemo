@@ -7,36 +7,37 @@ namespace App.UI
 {
     public partial class Form1 : Form
     {
-        private readonly ContextObject _source;
+        private ContextObject _source;
+        private readonly BindingSource _categoriesBindingSource = new BindingSource();
+        private readonly BindingSource _productsBidBindingSource = new BindingSource();
+
         private Category _currentCategory;
 
         public Form1()
         {
-            _source = new ContextObject();
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _source = new ContextObject();
+            _categoriesBindingSource.DataSource = _source.GetAllCategories();
+
             toolStripCategoriesComboBox.ComboBox.DisplayMember = "Name";
             toolStripCategoriesComboBox.ComboBox.ValueMember = "Id";
-            toolStripCategoriesComboBox.ComboBox.DataSource = _source.GetAllCategories();
+            toolStripCategoriesComboBox.ComboBox.DataSource = _categoriesBindingSource;
+
+            ProductsDataGridView.DataSource = _productsBidBindingSource;
+            ProductsListBox.DataSource = _productsBidBindingSource;
+            ProductsListBox.DisplayMember = "Name";
+            NameTextBox.DataBindings.Add("Text", _productsBidBindingSource, "Name");
+            PriceTextBox.DataBindings.Add("Text", _productsBidBindingSource, "Price");
         }
 
         private void toolStripCategoriesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             _currentCategory = (Category) toolStripCategoriesComboBox.SelectedItem;
-            
-            var products = _source.GetProducts(_currentCategory.Id);
-
-            ProductsDataGridView.DataSource = products;
-            ProductsListBox.DataSource = products;
-            ProductsListBox.DisplayMember = "Name";
-
-            NameTextBox.DataBindings.Clear();
-            PriceTextBox.DataBindings.Clear();
-            NameTextBox.DataBindings.Add("Text", products, "Name");
-            PriceTextBox.DataBindings.Add("Text", products, "Price");
+            _productsBidBindingSource.DataSource = _source.GetProducts(_currentCategory.Id);
         }
 
         private void toolStripAddButton_Click(object sender, EventArgs e)
@@ -46,14 +47,26 @@ namespace App.UI
 
             if (result == DialogResult.OK)
             {
-                _source.AddProduct(addNewProductForm.Product);
+                //_source.AddProduct(addNewProductForm.Product);
+                _productsBidBindingSource.Add(addNewProductForm.Product);
             }
         }
 
         private void toolStripDeleteButton_Click(object sender, EventArgs e)
         {
             var model = (Product) ProductsListBox.SelectedItem;
-            _source.DeleteProduct(model);
+            //_source.DeleteProduct(model);
+            _productsBidBindingSource.Remove(model);
+        }
+
+        private void toolStripBackButton_Click(object sender, EventArgs e)
+        {
+            _productsBidBindingSource.MovePrevious();
+        }
+
+        private void toolStripNextButton_Click(object sender, EventArgs e)
+        {
+            _productsBidBindingSource.MoveNext();
         }
 
     }
