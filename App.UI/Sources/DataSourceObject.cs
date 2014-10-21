@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using App.Data.Entities;
+using App.DataSets.Entities;
 
-namespace App.Data
+namespace App.UI.Sources
 {
-   public class ContextObject : IContext
+   public class DataSourceObject : IDataSource
    {
       private readonly List<Category> _categories;
       private readonly List<Product> _products;
 
-      public ContextObject()
+      public DataSourceObject()
       {
          _categories = new List<Category>();
          _products = new List<Product>();

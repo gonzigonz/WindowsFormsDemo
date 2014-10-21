@@ -1,4 +1,4 @@
-﻿namespace App.Data.Entities
+﻿namespace App.DataSets.Entities
 {
     public class Category
     {

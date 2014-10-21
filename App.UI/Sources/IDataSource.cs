@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Windows.Forms;
-using App.Data.Entities;
+﻿using System.Windows.Forms;
+using App.DataSets.Entities;
 
-namespace App.Data
+namespace App.UI.Sources
 {
-    public interface IContext
+    public interface IDataSource
     {
         object GetAllCategories();
         object GetProducts(int categoryId);

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using App.Data.Entities;
+using App.DataSets.Entities;
 
 namespace App.UI
 {

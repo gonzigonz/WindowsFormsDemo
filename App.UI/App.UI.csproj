@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -58,6 +59,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sources\DataSourceDataSet.cs" />
+    <Compile Include="Sources\DataSourceLinq.cs" />
+    <Compile Include="Sources\DataSourceObject.cs" />
+    <Compile Include="Sources\IDataSource.cs" />
     <EmbeddedResource Include="AddProductForm.resx">
       <DependentUpon>AddProductForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,9 +90,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\App.Data\App.Data.csproj">
+    <ProjectReference Include="..\App.DataSets\App.DataSets.csproj">
       <Project>{03E5C4BD-1FF6-438E-A6FF-F1ADF5DE3E37}</Project>
-      <Name>App.Data</Name>
+      <Name>App.DataSets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.LinqToSql\App.LinqToSql.csproj">
+      <Project>{ea32a652-16c5-48ea-bbf7-b1bb7af83c61}</Project>
+      <Name>App.LinqToSql</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
-using App.Data;
-using App.Data.Entities;
+using App.DataSets;
+using App.DataSets.Entities;
+using App.UI.Sources;
 
 namespace App.UI
 {
    public partial class Form1 : Form
    {
       // Avaliable data sources
-      private ContextObject _sourceDataObject;
-      private ContextDataSet _sourceDataDbSet;
+      private DataSourceObject _dataSourceObject;
+      private DataSourceDataSet _dataSourceDataSet;
+      private DataSourceLinq _dataSourceLinq;
 
-      private IContext _currentSource;
+      private IDataSource _currentSource;
       private Category _currentCategory;
       private readonly BindingSource _categoriesBindingSource = new BindingSource();
       private readonly BindingSource _productsBindingSource = new BindingSource();
@@ -39,8 +41,8 @@ namespace App.UI
          // Bind Product elements
          ProductsDataGridView.DataSource = _productsBindingSource;
          ProductsListBox.DataSource = _productsBindingSource;
-         NameTextBox.DataBindings.Add("Text", _productsBindingSource, "Name");
-         PriceTextBox.DataBindings.Add("Text", _productsBindingSource, "Price");
+         NameTextBox.DataBindings.Add("Text", _productsBindingSource, "Name", true);
+         PriceTextBox.DataBindings.Add("Text", _productsBindingSource, "Price", true);
       }
 
       private void toolStripSourceComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,18 +90,25 @@ namespace App.UI
          switch (toolStripSourceComboBox.SelectedIndex)
          {
             case 0:
-               if (_sourceDataObject == null)
+               if (_dataSourceObject == null)
                {
-                  _sourceDataObject = new ContextObject();
+                  _dataSourceObject = new DataSourceObject();
                }
-               _currentSource = _sourceDataObject;
+               _currentSource = _dataSourceObject;
                break;
             case 1:
-               if (_sourceDataDbSet == null)
+               if (_dataSourceDataSet == null)
                {
-                  _sourceDataDbSet = new ContextDataSet(GetConnectionString);
+                  _dataSourceDataSet = new DataSourceDataSet(GetConnectionString);
                }
-               _currentSource = _sourceDataDbSet;
+               _currentSource = _dataSourceDataSet;
+               break;
+            case 2:
+               if (_dataSourceLinq == null)
+               {
+                  _dataSourceLinq = new DataSourceLinq();
+               }
+               _currentSource = _dataSourceLinq;
                break;
          }
       }

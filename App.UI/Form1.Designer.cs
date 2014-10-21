@@ -43,6 +43,8 @@ namespace App.UI
          this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripBackButton = new System.Windows.Forms.ToolStripButton();
          this.toolStripNextButton = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+         this.SaveButton = new System.Windows.Forms.ToolStripButton();
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.PriceTextBox = new System.Windows.Forms.TextBox();
@@ -50,8 +52,6 @@ namespace App.UI
          this.ProductsListBox = new System.Windows.Forms.ListBox();
          this.tabPage2 = new System.Windows.Forms.TabPage();
          this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
-         this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-         this.SaveButton = new System.Windows.Forms.ToolStripButton();
          this.toolStrip1.SuspendLayout();
          this.tabControl1.SuspendLayout();
          this.tabPage1.SuspendLayout();
@@ -77,7 +77,7 @@ namespace App.UI
             this.SaveButton});
          this.toolStrip1.Location = new System.Drawing.Point(0, 0);
          this.toolStrip1.Name = "toolStrip1";
-         this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+         this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
          this.toolStrip1.Size = new System.Drawing.Size(736, 25);
          this.toolStrip1.TabIndex = 0;
          this.toolStrip1.Text = "toolStrip1";
@@ -111,7 +111,8 @@ namespace App.UI
          this.toolStripSourceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
          this.toolStripSourceComboBox.Items.AddRange(new object[] {
             "Object",
-            "DataSet"});
+            "DataSet",
+            "LINQ to SQL"});
          this.toolStripSourceComboBox.Name = "toolStripSourceComboBox";
          this.toolStripSourceComboBox.Size = new System.Drawing.Size(77, 25);
          this.toolStripSourceComboBox.SelectedIndexChanged += new System.EventHandler(this.toolStripSourceComboBox_SelectedIndexChanged);
@@ -166,80 +167,6 @@ namespace App.UI
          this.toolStripNextButton.Text = "Next>";
          this.toolStripNextButton.Click += new System.EventHandler(this.toolStripNextButton_Click);
          // 
-         // tabControl1
-         // 
-         this.tabControl1.Controls.Add(this.tabPage1);
-         this.tabControl1.Controls.Add(this.tabPage2);
-         this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.tabControl1.Location = new System.Drawing.Point(0, 25);
-         this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-         this.tabControl1.Name = "tabControl1";
-         this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(736, 447);
-         this.tabControl1.TabIndex = 1;
-         // 
-         // tabPage1
-         // 
-         this.tabPage1.Controls.Add(this.PriceTextBox);
-         this.tabPage1.Controls.Add(this.NameTextBox);
-         this.tabPage1.Controls.Add(this.ProductsListBox);
-         this.tabPage1.Location = new System.Drawing.Point(4, 22);
-         this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-         this.tabPage1.Name = "tabPage1";
-         this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-         this.tabPage1.Size = new System.Drawing.Size(728, 421);
-         this.tabPage1.TabIndex = 0;
-         this.tabPage1.Text = "Form";
-         this.tabPage1.UseVisualStyleBackColor = true;
-         // 
-         // PriceTextBox
-         // 
-         this.PriceTextBox.Location = new System.Drawing.Point(333, 113);
-         this.PriceTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-         this.PriceTextBox.Name = "PriceTextBox";
-         this.PriceTextBox.Size = new System.Drawing.Size(166, 20);
-         this.PriceTextBox.TabIndex = 3;
-         // 
-         // NameTextBox
-         // 
-         this.NameTextBox.Location = new System.Drawing.Point(333, 84);
-         this.NameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-         this.NameTextBox.Name = "NameTextBox";
-         this.NameTextBox.Size = new System.Drawing.Size(166, 20);
-         this.NameTextBox.TabIndex = 2;
-         // 
-         // ProductsListBox
-         // 
-         this.ProductsListBox.FormattingEnabled = true;
-         this.ProductsListBox.Location = new System.Drawing.Point(28, 32);
-         this.ProductsListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-         this.ProductsListBox.Name = "ProductsListBox";
-         this.ProductsListBox.Size = new System.Drawing.Size(197, 264);
-         this.ProductsListBox.TabIndex = 1;
-         // 
-         // tabPage2
-         // 
-         this.tabPage2.Controls.Add(this.ProductsDataGridView);
-         this.tabPage2.Location = new System.Drawing.Point(4, 22);
-         this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-         this.tabPage2.Name = "tabPage2";
-         this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-         this.tabPage2.Size = new System.Drawing.Size(728, 423);
-         this.tabPage2.TabIndex = 1;
-         this.tabPage2.Text = "Grid";
-         this.tabPage2.UseVisualStyleBackColor = true;
-         // 
-         // ProductsDataGridView
-         // 
-         this.ProductsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.ProductsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.ProductsDataGridView.Location = new System.Drawing.Point(2, 2);
-         this.ProductsDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-         this.ProductsDataGridView.Name = "ProductsDataGridView";
-         this.ProductsDataGridView.RowTemplate.Height = 33;
-         this.ProductsDataGridView.Size = new System.Drawing.Size(724, 419);
-         this.ProductsDataGridView.TabIndex = 0;
-         // 
          // toolStripSeparator4
          // 
          this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -255,6 +182,80 @@ namespace App.UI
          this.SaveButton.Text = "Save";
          this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
          // 
+         // tabControl1
+         // 
+         this.tabControl1.Controls.Add(this.tabPage1);
+         this.tabControl1.Controls.Add(this.tabPage2);
+         this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.tabControl1.Location = new System.Drawing.Point(0, 25);
+         this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
+         this.tabControl1.Name = "tabControl1";
+         this.tabControl1.SelectedIndex = 0;
+         this.tabControl1.Size = new System.Drawing.Size(736, 447);
+         this.tabControl1.TabIndex = 1;
+         // 
+         // tabPage1
+         // 
+         this.tabPage1.Controls.Add(this.PriceTextBox);
+         this.tabPage1.Controls.Add(this.NameTextBox);
+         this.tabPage1.Controls.Add(this.ProductsListBox);
+         this.tabPage1.Location = new System.Drawing.Point(4, 22);
+         this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+         this.tabPage1.Name = "tabPage1";
+         this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+         this.tabPage1.Size = new System.Drawing.Size(728, 421);
+         this.tabPage1.TabIndex = 0;
+         this.tabPage1.Text = "Form";
+         this.tabPage1.UseVisualStyleBackColor = true;
+         // 
+         // PriceTextBox
+         // 
+         this.PriceTextBox.Location = new System.Drawing.Point(333, 113);
+         this.PriceTextBox.Margin = new System.Windows.Forms.Padding(2);
+         this.PriceTextBox.Name = "PriceTextBox";
+         this.PriceTextBox.Size = new System.Drawing.Size(166, 20);
+         this.PriceTextBox.TabIndex = 3;
+         // 
+         // NameTextBox
+         // 
+         this.NameTextBox.Location = new System.Drawing.Point(333, 84);
+         this.NameTextBox.Margin = new System.Windows.Forms.Padding(2);
+         this.NameTextBox.Name = "NameTextBox";
+         this.NameTextBox.Size = new System.Drawing.Size(166, 20);
+         this.NameTextBox.TabIndex = 2;
+         // 
+         // ProductsListBox
+         // 
+         this.ProductsListBox.FormattingEnabled = true;
+         this.ProductsListBox.Location = new System.Drawing.Point(28, 32);
+         this.ProductsListBox.Margin = new System.Windows.Forms.Padding(2);
+         this.ProductsListBox.Name = "ProductsListBox";
+         this.ProductsListBox.Size = new System.Drawing.Size(197, 264);
+         this.ProductsListBox.TabIndex = 1;
+         // 
+         // tabPage2
+         // 
+         this.tabPage2.Controls.Add(this.ProductsDataGridView);
+         this.tabPage2.Location = new System.Drawing.Point(4, 22);
+         this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
+         this.tabPage2.Name = "tabPage2";
+         this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+         this.tabPage2.Size = new System.Drawing.Size(728, 421);
+         this.tabPage2.TabIndex = 1;
+         this.tabPage2.Text = "Grid";
+         this.tabPage2.UseVisualStyleBackColor = true;
+         // 
+         // ProductsDataGridView
+         // 
+         this.ProductsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.ProductsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.ProductsDataGridView.Location = new System.Drawing.Point(2, 2);
+         this.ProductsDataGridView.Margin = new System.Windows.Forms.Padding(2);
+         this.ProductsDataGridView.Name = "ProductsDataGridView";
+         this.ProductsDataGridView.RowTemplate.Height = 33;
+         this.ProductsDataGridView.Size = new System.Drawing.Size(724, 417);
+         this.ProductsDataGridView.TabIndex = 0;
+         // 
          // Form1
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,7 +263,7 @@ namespace App.UI
          this.ClientSize = new System.Drawing.Size(736, 472);
          this.Controls.Add(this.tabControl1);
          this.Controls.Add(this.toolStrip1);
-         this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+         this.Margin = new System.Windows.Forms.Padding(2);
          this.Name = "Form1";
          this.Text = "Form1";
          this.Load += new System.EventHandler(this.Form1_Load);

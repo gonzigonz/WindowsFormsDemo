@@ -3,11 +3,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
-using App.Data.Entities;
+using App.DataSets.Entities;
 
-namespace App.Data
+namespace App.UI.Sources
 {
-   public class ContextDataSet : IContext
+   public class DataSourceDataSet : IDataSource
    {
       private readonly string _connectionString;
       private readonly DataSet _dataSet;
@@ -16,7 +16,7 @@ namespace App.Data
       private int _nextId = int.MaxValue;
       
 
-      public ContextDataSet(string connectionString)
+      public DataSourceDataSet(string connectionString)
       {
          _connectionString = connectionString;
          _dataSet = new DataSet();
