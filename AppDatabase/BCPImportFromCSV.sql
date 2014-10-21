@@ -1,0 +1,7 @@
+BULK INSERT [DATA].[MDE_MX_MAPPING_BROKER]
+    FROM '\\gonz-odr\LMIG_GONZ_ODR\Libary Files\ELEMENT_CSVS\MDE_MX_MAPPING_BROKER.csv' 
+    WITH 
+    ( 
+        FIELDTERMINATOR = '|', 
+        ROWTERMINATOR = '\n' 
+    ) 
