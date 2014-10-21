@@ -1,16 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UI", "App.UI\App.UI.csproj", "{3D30EFD3-17C5-4508-9C1A-5A0A6E5C0E69}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Data", "App.Data\App.Data.csproj", "{03E5C4BD-1FF6-438E-A6FF-F1ADF5DE3E37}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppDatabase", "AppDatabase", "{9595F2F6-0C23-4413-9E60-678F436136B9}"
-	ProjectSection(SolutionItems) = preProject
-		AppDatabase\WindowsFormsDemo.dacpac = AppDatabase\WindowsFormsDemo.dacpac
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

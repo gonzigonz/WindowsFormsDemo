@@ -1,1 +1,5 @@
-bcp LMIG_ODR_BACKLOAD.RECS.DE_MX_MAPPING_COUNTERPARTIES out E:\Temp\test.csv -t"|" -T -c -SAU2004NDE702\SDHS03
+set sqlServer=localhost
+set outputDir=Z:\Documents\Visual Studio 2013\Projects\WindowsFormsDemo\AppDatabase
+
+bcp WindowsFormsDemo.dbo.Categories out "%outputDir%\Categories.csv" -t"|" -T -c -S%sqlServer%
+bcp WindowsFormsDemo.dbo.Products out "%outputDir%\Products.csv" -t"|" -T -c -S%sqlServer%
