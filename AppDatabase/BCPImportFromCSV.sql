@@ -1,7 +1,17 @@
-BULK INSERT [DATA].[MDE_MX_MAPPING_BROKER]
-    FROM '\\gonz-odr\LMIG_GONZ_ODR\Libary Files\ELEMENT_CSVS\MDE_MX_MAPPING_BROKER.csv' 
-    WITH 
-    ( 
-        FIELDTERMINATOR = '|', 
-        ROWTERMINATOR = '\n' 
-    ) 
+USE WindowsFormsDemo
+
+BULK INSERT [dbo].[Categories]
+FROM 'C:\DATA\GITHUB\WindowsFormsDemo\AppDatabase\Data\Categories.csv' 
+WITH 
+( 
+    FIELDTERMINATOR = '|', 
+    ROWTERMINATOR = '\n' 
+) 
+
+BULK INSERT [dbo].[Products]
+FROM 'C:\DATA\GITHUB\WindowsFormsDemo\AppDatabase\Data\Products.csv' 
+WITH 
+( 
+    FIELDTERMINATOR = '|', 
+    ROWTERMINATOR = '\n' 
+) 
