@@ -1,4 +1,6 @@
-﻿namespace App.UI
+﻿using System;
+
+namespace App.UI
 {
     partial class Form1
     {
@@ -38,6 +40,9 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripAddButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripDeleteButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBackButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripNextButton = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.PriceTextBox = new System.Windows.Forms.TextBox();
@@ -45,9 +50,6 @@
             this.ProductsListBox = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripBackButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripNextButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -102,9 +104,12 @@
             // toolStripSourceComboBox
             // 
             this.toolStripSourceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripSourceComboBox.DropDownWidth = 150;
+            this.toolStripSourceComboBox.Items.AddRange(new object[] {
+            "Object",
+            "DataSet"});
             this.toolStripSourceComboBox.Name = "toolStripSourceComboBox";
             this.toolStripSourceComboBox.Size = new System.Drawing.Size(150, 43);
+            this.toolStripSourceComboBox.SelectedIndexChanged += new System.EventHandler(this.toolStripSourceComboBox_SelectedIndexChanged);
             // 
             // toolStripSeparator2
             // 
@@ -130,6 +135,31 @@
             this.toolStripDeleteButton.Size = new System.Drawing.Size(90, 40);
             this.toolStripDeleteButton.Text = "Delete";
             this.toolStripDeleteButton.Click += new System.EventHandler(this.toolStripDeleteButton_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 43);
+            // 
+            // toolStripBackButton
+            // 
+            this.toolStripBackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripBackButton.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBackButton.Image")));
+            this.toolStripBackButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBackButton.Name = "toolStripBackButton";
+            this.toolStripBackButton.Size = new System.Drawing.Size(87, 40);
+            this.toolStripBackButton.Text = "<Back";
+            this.toolStripBackButton.Click += new System.EventHandler(this.toolStripBackButton_Click);
+            // 
+            // toolStripNextButton
+            // 
+            this.toolStripNextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripNextButton.Image = ((System.Drawing.Image)(resources.GetObject("toolStripNextButton.Image")));
+            this.toolStripNextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripNextButton.Name = "toolStripNextButton";
+            this.toolStripNextButton.Size = new System.Drawing.Size(87, 40);
+            this.toolStripNextButton.Text = "Next>";
+            this.toolStripNextButton.Click += new System.EventHandler(this.toolStripNextButton_Click);
             // 
             // tabControl1
             // 
@@ -198,31 +228,6 @@
             this.ProductsDataGridView.RowTemplate.Height = 33;
             this.ProductsDataGridView.Size = new System.Drawing.Size(1459, 820);
             this.ProductsDataGridView.TabIndex = 0;
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 43);
-            // 
-            // toolStripBackButton
-            // 
-            this.toolStripBackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripBackButton.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBackButton.Image")));
-            this.toolStripBackButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBackButton.Name = "toolStripBackButton";
-            this.toolStripBackButton.Size = new System.Drawing.Size(87, 40);
-            this.toolStripBackButton.Text = "<Back";
-            this.toolStripBackButton.Click += new System.EventHandler(this.toolStripBackButton_Click);
-            // 
-            // toolStripNextButton
-            // 
-            this.toolStripNextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripNextButton.Image = ((System.Drawing.Image)(resources.GetObject("toolStripNextButton.Image")));
-            this.toolStripNextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripNextButton.Name = "toolStripNextButton";
-            this.toolStripNextButton.Size = new System.Drawing.Size(87, 40);
-            this.toolStripNextButton.Text = "Next>";
-            this.toolStripNextButton.Click += new System.EventHandler(this.toolStripNextButton_Click);
             // 
             // Form1
             // 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using App.Data.Entities;
 
 namespace App.Data
@@ -17,30 +18,30 @@ namespace App.Data
             SeedData();
         }
 
-        public IList<Category> GetAllCategories()
+        public object GetAllCategories()
         {
             return _categories;
         }
 
-        public IList<Product> GetProducts(int categoryId)
+        public object GetProducts(int categoryId)
         {
             return _products.Where(p => p.CategoryId == categoryId).ToList();
         }
 
-        public void Save()
+        public void DeleteProduct(BindingSource bindingSource, Product product)
         {
-            throw new System.NotImplementedException();
+            bindingSource.Remove(product);
         }
 
-        //public void DeleteProduct(Product product)
-        //{
-        //    _products.Remove(product);
-        //}
+        public void AddProduct(BindingSource bindingSource, Product product)
+        {
+            bindingSource.Add(product);
+        }
 
-        //public void AddProduct(Product product)
-        //{
-        //    _products.Add(product);
-        //}
+        public void Save()
+        {
+            //Nothing to do yet
+        }
 
         public void SeedData()
         {
