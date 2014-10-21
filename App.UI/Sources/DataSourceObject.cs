@@ -28,17 +28,26 @@ namespace App.UI.Sources
          return _products.Where(p => p.CategoryId == categoryId).ToList();
       }
 
-      public void DeleteProduct(BindingSource bindingSource, int productId)
+      public bool DeleteProduct(int productId)
       {
+         const bool rebindRequired = true;
          var product = _products.FirstOrDefault(p => p.Id == productId);
-         if (product != null) bindingSource.Remove(product);
+         if (product != null)
+         {
+            //bindingSource.Remove(product);
+            _products.Remove(product);
+         }
+         return rebindRequired;
       }
 
-      public void AddProduct(BindingSource bindingSource, Product product)
+      public bool AddProduct(Product product)
       {
+         const bool rebindRequired = true;
          var nextId = _products.Max(p => p.Id) + 1;
          product.Id = nextId;
-         bindingSource.Add(product);
+         //bindingSource.Add(product);
+         _products.Add(product);
+         return rebindRequired;
       }
 
       public void Save()

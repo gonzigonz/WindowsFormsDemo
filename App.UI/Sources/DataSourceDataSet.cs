@@ -49,8 +49,10 @@ namespace App.UI.Sources
          return table;
       }
 
-      public void DeleteProduct(BindingSource bindingSource, int productId)
+      public bool DeleteProduct(int productId)
       {
+         const bool rebindRequired = false;
+
          var table = _dataSet.Tables["Products"];
          var query = table.AsEnumerable()
             .Where(r=>(int)r["Id"] == productId);
@@ -60,10 +62,14 @@ namespace App.UI.Sources
          {
             row.Delete();
          }
+
+         return rebindRequired;
       }
 
-      public void AddProduct(BindingSource bindingSource, Product product)
+      public bool AddProduct(Product product)
       {
+         const bool rebindRequired = false;
+
          var table = _dataSet.Tables["Products"];
          var row = table.NewRow();
          _nextId -= 1;
@@ -74,6 +80,8 @@ namespace App.UI.Sources
          row["CategoryId"] = product.CategoryId;
 
          table.Rows.Add(row);
+
+         return rebindRequired;
       }
 
       public void Save()

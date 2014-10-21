@@ -65,14 +65,22 @@ namespace App.UI
          if (result == DialogResult.OK)
          {
             var model = addNewProductForm.Product;
-            _currentSource.AddProduct(_productsBindingSource, model);
+            var rebind = _currentSource.AddProduct(model);
+            if (rebind)
+            {
+               BindProducts();
+            }
          }
       }
 
       private void toolStripDeleteButton_Click(object sender, EventArgs e)
       {
          var productId = (int) ProductsListBox.SelectedValue;
-         _currentSource.DeleteProduct(_productsBindingSource, productId);
+         var rebind = _currentSource.DeleteProduct(productId);
+         if (rebind)
+         {
+            BindProducts();
+         }
       }
 
       private void toolStripBackButton_Click(object sender, EventArgs e)
@@ -146,6 +154,7 @@ namespace App.UI
       private void SaveButton_Click(object sender, EventArgs e)
       {
          _currentSource.Save();
+         MessageBox.Show(@"Data saved!");
       }
    }
 }

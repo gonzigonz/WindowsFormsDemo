@@ -8,33 +8,85 @@ namespace App.UI.Sources
 {
    public class DataSourceLinq : IDataSource
    {
-      private readonly DatabaseDataContext _context = new DatabaseDataContext();
 
       public object GetAllCategories()
       {
-         return _context.LinqCategories;
+         using (var context = new DatabaseDataContext())
+         {
+            return context.LinqCategories.ToList();
+         }
       }
 
       public object GetProducts(int categoryId)
       {
-         var query = _context.LinqProducts
-            .Where(p => p.CategoryId == categoryId);
-         return query;
+         using (var context = new DatabaseDataContext())
+         {
+            var query = context.LinqProducts
+               .Where(p => p.CategoryId == categoryId);
+            return query.ToList();
+         }
       }
 
-      public void DeleteProduct(BindingSource bindingSource, int productId)
+      public bool DeleteProduct(int productId)
       {
-         throw new NotImplementedException();
+         var rebindRequired = false;
+         using (var context = new DatabaseDataContext())
+         {
+            var entity = context.LinqProducts
+               .FirstOrDefault(p => p.Id == productId);
+
+            if (entity != null)
+            {
+               context.LinqProducts.DeleteOnSubmit(entity);
+               Save(context);
+               rebindRequired = true;
+            }
+         }
+         return rebindRequired;
       }
 
-      public void AddProduct(BindingSource bindingSource, Product product)
+      public bool AddProduct(Product product)
       {
-         throw new NotImplementedException();
+         const bool rebindRequired = true;
+         using (var context = new DatabaseDataContext())
+         {
+            var linqProduct = new LinqProduct
+            {
+               Id = product.Id,
+               Name = product.Name,
+               Price = product.Price,
+               CategoryId = product.CategoryId
+            };
+
+            context.LinqProducts.InsertOnSubmit(linqProduct);
+            Save(context);
+         }
+         return rebindRequired;
       }
 
       public void Save()
       {
-         throw new NotImplementedException();
+         using (var context = new DatabaseDataContext())
+         {
+            Save(context);
+         }
+      }
+
+      private void Save(DatabaseDataContext context)
+      {
+         try
+         {
+            using (context)
+            {
+               context.SubmitChanges();
+            }
+         }
+         catch (Exception e)
+         {
+            MessageBox.Show(e.Message);
+            throw new Exception(e.Message, e.InnerException);
+         }
+         
       }
 
       public void SeedData()
